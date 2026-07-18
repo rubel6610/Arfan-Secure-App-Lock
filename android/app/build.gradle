@@ -1,6 +1,7 @@
 apply plugin: "com.android.application"
 apply plugin: "org.jetbrains.kotlin.android"
 apply plugin: "com.facebook.react"
+apply plugin: "kotlin-kapt"
 
 /**
  * This is the configuration block to customize your React Native Android app.
@@ -116,4 +117,21 @@ dependencies {
     } else {
         implementation jscFlavor
     }
+
+    // Room Database
+    implementation "androidx.room:room-runtime:2.6.1"
+    implementation "androidx.room:room-ktx:2.6.1"
+    kapt "androidx.room:room-compiler:2.6.1"
+
+    // Biometric
+    implementation "androidx.biometric:biometric:1.1.0"
+
+    // Security - EncryptedSharedPreferences
+    implementation "androidx.security:security-crypto:1.1.0-alpha06"
+
+    // Kotlin Coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3"
+
+    // Lifecycle (ViewModel + LiveData)
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.7.0"
 }

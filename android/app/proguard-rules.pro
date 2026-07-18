@@ -1,10 +1,28 @@
 # Add project specific ProGuard rules here.
-# By default, the flags in this file are appended to flags specified
-# in /usr/local/Cellar/android-sdk/24.3.3/tools/proguard/proguard-android.txt
-# You can edit the include path and order by changing the proguardFiles
-# directive in build.gradle.
-#
-# For more details, see
-#   http://developer.android.com/guide/developing/tools/proguard.html
 
-# Add any project specific keep options here:
+# ─── AppLocker Native Module ───────────────────────────────────────────────────
+-keep class com.myapplocker.AppLockModule { *; }
+-keep class com.myapplocker.AppLockPackage { *; }
+-keep class com.myapplocker.AppMonitorService { *; }
+-keep class com.myapplocker.LockOverlayActivity { *; }
+-keep class com.myapplocker.BootReceiver { *; }
+
+# ─── Room Database ─────────────────────────────────────────────────────────────
+-keep class com.myapplocker.AppDatabase { *; }
+-keep class com.myapplocker.LockedApp { *; }
+-keep class com.myapplocker.AppSettings { *; }
+-keep @androidx.room.Entity class * { *; }
+-keep @androidx.room.Dao class * { *; }
+-dontwarn androidx.room.**
+
+# ─── React Native ─────────────────────────────────────────────────────────────
+-keep class com.facebook.react.** { *; }
+-dontwarn com.facebook.react.**
+
+# ─── Kotlin Coroutines ────────────────────────────────────────────────────────
+-keep class kotlinx.coroutines.** { *; }
+-dontwarn kotlinx.coroutines.**
+
+# ─── Biometric ────────────────────────────────────────────────────────────────
+-keep class androidx.biometric.** { *; }
+
